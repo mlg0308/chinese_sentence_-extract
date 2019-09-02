@@ -1,1 +1,17 @@
+import re
 
+key = '__word__'         # your key word
+article = '__article__'  # your target article
+
+#提取关键词所在句子的正则表达式
+pbs1 ='[^。^\？^!^……]*?' + k + '.*?[。|\？|！|……]'
+
+#提取关键词所在句子及其上下句的正则表达式
+pbs3 ='([^。^\？^！^……]*[。\？！……]*)([^。^\？^!^……]*?' + k + '.*?[。|\？|！|……])([^。^\？^！^……]*[。|\？|！|……]{0,1})'
+
+
+#提取关键词所在句子
+list_t1 = re.findall(pbs1,article)
+
+#提取关键词所在句子及其上下句
+list_t3 = re.findall(pbs3,article)
